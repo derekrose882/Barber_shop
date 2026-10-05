@@ -282,6 +282,25 @@ button.chip {
   background-color: var(--color-stucco-light-a15);
 }
 
+.section--dark a.chip:hover,
+.section--dark button.chip:hover {
+  background-color: var(--color-stucco-light);
+  border-color: var(--color-stucco-light);
+  color: var(--color-mesquite);
+}
+
+.section--dark .chip[aria-pressed="true"],
+.section--dark .chip[aria-current="true"],
+.section--dark .chip.is-active {
+  background-color: var(--color-marigold);
+  border-color: var(--color-marigold);
+  color: var(--color-mesquite);
+}
+
+.section--dark .chip:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
 /* Usage: <span class="stars" role="img" aria-label="5 out of 5 stars"></span> */
 .stars {
   display: inline-flex;

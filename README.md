@@ -77,7 +77,7 @@ A modern, beautiful demo website showcasing what a premium barbershop website ca
 
 ## Image Credits
 
-All images used in this demo are sourced from free stock photo services (Unsplash, Pexels). See `assets/img/CREDITS.md` for complete attribution information.
+The images in `assets/img/` are placeholder illustrations made for this demo. Replace them with real photos at the same paths and sizes, and record credits in `assets/img/CREDITS.md`.
 
 ## Technology Stack
 

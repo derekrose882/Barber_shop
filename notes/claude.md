@@ -15,6 +15,12 @@
   - `.hours-list` today-row contrast fix (a closed "today" was dimmed below AA). Lighthouse a11y now 100 on Home/Services/404.
   - `netlify.toml`: `publish = "."` instead of the ambiguous `"/"`.
 
+- (2026-10-05) Phase 2, part 2 (branch `claude/foundation-home`, restarted from `main` after PR #1 merged). Kayden: Replit is out of credits, so Claude Code builds Barbers + Book; photos are placeholders; keep the redrawn logo.
+  - **Placeholders:** every Section 8 image path now has a warm-graded illustration (WebP, 11–29 KB). Before/after pairs show visibly different cuts so the slider and lightbox demo properly. `assets/img/CREDITS.md` says they're placeholders and how to credit real photos.
+  - **Barbers (7.3):** flip cards from `BARBERS` (3D `rotateY` with `--ease-spring`, crossfade under reduced motion, `aria-expanded`, `inert` on the hidden face, focus moves to the back heading and returns to the button, Escape flips back), working days derived from `days` ("Tue, Thu–Sun"), "Book with X" → `book.html?barber=x`. Gallery filter chips with fade/scale + FLIP animation and a live status message. `<dialog>` lightbox: before/after side by side (stacked on mobile), Previous/Next + arrow keys, Escape, backdrop click, focus returns to the photo. Hiring note + CTA band.
+  - **Book (7.4):** progress bar, five steps in one form, preselect from `?service=` (add-on ids check the add-on) and `?barber=`, 14-day strip with Closed/Off/Full days disabled, 30-minute slots up to close − total duration, the PRD's deterministic `isBooked`, first available assigns the first free barber in `BARBERS` order and says who, past times today disabled, inline validation on blur with the PRD's phone message, live phone formatting, Edit links on Confirm, `?step=` history so the browser Back button moves between steps (and the in-page Back never leaves the page), live summary with highlight flash (sticky card on desktop, bottom bar + sheet on mobile), Netlify Forms POST (confirmation shows regardless; failures go to `console.warn`), confirmation with drawn circle + check, palm-leaf/star burst, "You're booked, Jordan.", `.ics` download, demo note. Draft survives a reload via sessionStorage.
+  - Shared: `[hidden]` now always wins over component `display` rules; `formatDays()` moved into `main.js`; dark-section chip active/hover states.
+
 ## Contract notes for other agents (additions, nothing in the PRD changed)
 - **Extra tokens** in `tokens.css`: `--font-display`, `--font-body`, `--leading-body`, `--leading-tight`, `--leading-heading`, `--measure`, alpha tints (`--color-mesquite-a10/a15/a40/a70`, `--color-stucco-a85`, `--color-stucco-light-a15`, `--color-rust-a10/a25`, `--color-adobe-a50`, `--color-marigold-a35/a60`, `--color-agave-a15`), `--gradient-golden`, and `--palm-frond` (an SVG palm frond you can use as a CSS `mask`, with `background-color` as the fill). Use these instead of raw rgba.
 - **Header:** sticky and solid on every page except Home (fixed, transparent over the hero). Sticky things on your page should use `top: var(--header-h)`.
@@ -32,8 +38,8 @@
 - (none yet)
 
 ## Known issues
-- Barbers and Book pages not built (Replit branch never arrived).
 - Home's Visit section repeats the address/phone/email as static HTML (same as the footer contract) so it reads without JS.
-- Lighthouse (local python server, no gzip/cache, photos missing): Home 88 / 97→100 / 96, Services 90 / 100 / 100, 404 93 / 100 / 100. Perf is held back by the dev server and render-blocking Google Fonts; re-run on the Netlify deploy. Best Practices on Home loses points only for the missing-photo 404s.
+- Lighthouse mobile (local, plain python server, no gzip): Perf 87–92, Accessibility 100, Best Practices 100 on all five pages. With a gzip + cache-header server (like Netlify): Home 90, Book 92. Remaining cost is render-blocking Google Fonts. Re-run on the real deploy.
+- Locally the booking POST returns 501 (python server), which the browser logs as a failed resource. Expected per 7.4; on Netlify it succeeds.
 - `assets/logo.svg`, `assets/favicon.svg`, `netlify.toml`, `robots.txt`, `README.md` are Mistral's and not created in Phase 0 (to avoid add/add merge conflicts). Logo shows as an empty 36px box until they land.
 - Photos in `assets/img/` don't exist yet (Kayden).
