@@ -31,6 +31,33 @@ export function formatHours(entry) {
 }
 
 /* ------------------------------------------------------------------------ */
+/* Working days: [2,3,4,5,6] -> "Tue–Sat", [0,2,4,5,6] -> "Tue, Thu–Sun"     */
+/* ------------------------------------------------------------------------ */
+
+const DAY_ABBR = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const WEEK = [1, 2, 3, 4, 5, 6, 0]; // Monday-first, so Sunday ends a run
+
+export function formatDays(days) {
+  const runs = [];
+  WEEK.forEach((day, i) => {
+    if (!days.includes(day)) return;
+    const last = runs[runs.length - 1];
+    if (last && last.end === i - 1) {
+      last.end = i;
+      last.days.push(day);
+    } else {
+      runs.push({ end: i, days: [day] });
+    }
+  });
+  return runs
+    .map(({ days: d }) => {
+      if (d.length >= 3) return `${DAY_ABBR[d[0]]}–${DAY_ABBR[d[d.length - 1]]}`;
+      return d.map((x) => DAY_ABBR[x]).join(', ');
+    })
+    .join(', ');
+}
+
+/* ------------------------------------------------------------------------ */
 /* Current page in nav                                                       */
 /* ------------------------------------------------------------------------ */
 
