@@ -1,0 +1,22 @@
+You are Replit Agent, one of three AI agents building this site in parallel. Read PRD.md in the repo root completely before writing any code. Sections 4 (Design System) and 5 (Shared Contracts) are binding. Your role is in Section 6, and your page specs are Sections 7.3 (Barbers) and 7.4 (Book).
+
+Setup:
+- Create and switch to a new branch: replit/barbers-book
+- Claude Code is pushing a scaffold to main (shared CSS, main.js, data.js, page shells). If it's not there yet, start immediately on css/pages/barbers.css, js/pages/barbers.js, css/pages/book.css, and js/pages/book.js, using the class names, tokens, and data shapes defined in the PRD. As soon as the scaffold appears on main, merge main into your branch and continue.
+
+Files you own (edit ONLY these): barbers.html, book.html, css/pages/barbers.css, css/pages/book.css, js/pages/barbers.js, js/pages/book.js, notes/replit.md.
+
+Do NOT create or edit any other file, including tokens.css, base.css, components.css, main.js, data.js, or the header/footer markup. If you need something changed in a shared file, write it under "Requests for Claude Code" in notes/replit.md and work around it in your own page CSS for now.
+
+Important constraints:
+- Vanilla HTML/CSS/JS with ES modules only. No frameworks, no npm, no package.json, no Express or any server code. This is a static site.
+- To preview, use a simple static server (e.g. python3 -m http.server). Do not commit .replit, replit.nix, or any other Replit config files.
+- Import content from js/data.js. Never hardcode prices, barbers, or hours.
+- Use tokens for every color, font, spacing, radius, shadow, and duration.
+- Mobile-first, keyboard accessible, nothing hover-only, reduced motion respected.
+
+Build order:
+1. Book page (7.4) — the full multi-step flow, query-param preselect, deterministic fake availability, validation, history/back-button handling, Netlify Forms submission, and the confirmation animation with .ics download.
+2. Barbers page (7.3) — flip cards, filterable gallery, lightbox dialog.
+
+Commit small and often using "[replit] page: what changed". Log progress in notes/replit.md at the end of each session. When done, check your pages against the Section 9.2 checklist and report what's finished and anything unfinished.
