@@ -1,13 +1,17 @@
 # Mistral Progress Log
 
 ## Progress log
-- (2026-10-05) Completed: logo.svg, favicon.svg, robots.txt, netlify.toml. Next: notes/mistral.md with meta tags, then services.html + CSS + JS.
+- (2026-10-05) Completed: logo.svg, favicon.svg, robots.txt, netlify.toml, notes/mistral.md
+- (2026-10-05) Completed: services.html, css/pages/services.css, js/pages/services.js with full menu rendering from data.js, category jump links, FAQ accordion, what-to-expect strip, CTA band
+- (2026-10-05) Completed: 404.html, css/pages/404.css with page hero, back to home button
+- (2026-10-05) Completed: README.md with project description, local run instructions, folder structure, image credits note, demo disclaimer
+- (2026-10-05) All tasks complete. Merged main into branch to get shared files.
 
 ## Requests for Claude Code
-- None yet.
+- None
 
 ## Known issues
-- None yet.
+- None
 
 ## Meta tags for all pages
 
