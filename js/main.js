@@ -321,6 +321,8 @@ function enhanceSticker(sticker) {
   textNode.append(textPath);
   svg.append(path, textNode);
 
+  // Screen readers get the words without the decorative separators
+  textEl.textContent = text.split('✦').map((t) => t.trim()).filter(Boolean).join(', ');
   textEl.classList.add('sr-only');
   sticker.prepend(svg);
   sticker.classList.add('is-enhanced');
