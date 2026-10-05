@@ -355,7 +355,8 @@ button.chip {
 
    Background (above):  --from-stucco (default) / --from-light / --from-dark / --from-adobe
    Fill (below):        --to-stucco / --to-light (default) / --to-dark / --to-adobe
-   .divider-wave--flip  flips vertically (wave hangs down from the section above).
+   .divider-wave--flip  flips vertically (wave hangs down from the section above);
+                        keep --from/--to meaning above/below, colours swap automatically.
    ========================================================================== */
 .divider-wave {
   --wave-from: var(--color-stucco);
@@ -389,6 +390,11 @@ button.chip {
 .divider-wave--to-light    { --wave-to: var(--color-stucco-light); }
 .divider-wave--to-dark     { --wave-to: var(--color-mesquite); }
 .divider-wave--to-adobe    { --wave-to: var(--color-rust); }
+
+.divider-wave--flip {
+  background-color: var(--wave-to);
+  color: var(--wave-from);
+}
 
 /* ==========================================================================
    Sticker badge
@@ -817,7 +823,7 @@ details.accordion[open] > summary::after {
   transition: transform var(--dur-med) var(--ease-spring);
 }
 
-.nav-toggle[aria-expanded="true"] .nav-toggle__bar:first-of-type {
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-of-type(2) {
   transform: translateY(4.5px) rotate(45deg);
 }
 
