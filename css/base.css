@@ -63,6 +63,11 @@ body {
   overflow-x: clip;
 }
 
+/* The hidden attribute always wins over component display rules */
+[hidden] {
+  display: none !important;
+}
+
 img,
 picture,
 svg,
