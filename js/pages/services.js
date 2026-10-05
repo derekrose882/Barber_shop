@@ -1,35 +1,7 @@
 import { SERVICES, SERVICE_CATEGORIES, FAQ, formatPrice } from '../data.js';
 
-// Category jump links - sticky on mobile
-const servicesNav = document.querySelector('[data-services-nav]');
-const header = document.querySelector('[data-header]');
-
-function initStickyNav() {
-  if (!servicesNav || !header) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        servicesNav.classList.remove('services-nav--sticky');
-      } else {
-        servicesNav.classList.add('services-nav--sticky');
-      }
-    },
-    {
-      rootMargin: `-${header.offsetHeight}px 0px 0px 0px`,
-      threshold: 0,
-    }
-  );
-
-  const sentinel = document.createElement('div');
-  sentinel.style.position = 'absolute';
-  sentinel.style.top = '0';
-  sentinel.style.height = '1px';
-  sentinel.style.width = '100%';
-  servicesNav.before(sentinel);
-  observer.observe(sentinel);
-}
+// Jump links scroll natively (smooth via base.css, instant with reduced motion);
+// the sticky offset comes from scroll-margin-top in services.css.
 
 // Render service menu
 function renderServicesMenu() {
@@ -78,7 +50,6 @@ function renderFAQ() {
       <details class="accordion services-faq__item">
         <summary class="accordion__summary">
           <span class="accordion__title">${item.q}</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
         </summary>
         <div class="accordion__content">
           <p>${item.a}</p>
@@ -90,28 +61,6 @@ function renderFAQ() {
   container.innerHTML = html;
 }
 
-// Smooth scroll for category links
-function initCategoryLinks() {
-  const links = document.querySelectorAll('[data-category]');
-  links.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href').substring(1);
-      const target = document.getElementById(targetId);
-      if (target) {
-        e.preventDefault();
-        const headerHeight = document.querySelector('[data-header]')?.offsetHeight || 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth',
-        });
-      }
-    });
-  });
-}
-
 // Initialize
-initStickyNav();
 renderServicesMenu();
 renderFAQ();
-initCategoryLinks();
