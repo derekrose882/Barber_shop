@@ -355,7 +355,8 @@ button.chip {
 
    Background (above):  --from-stucco (default) / --from-light / --from-dark / --from-adobe
    Fill (below):        --to-stucco / --to-light (default) / --to-dark / --to-adobe
-   .divider-wave--flip  flips vertically (wave hangs down from the section above).
+   .divider-wave--flip  flips vertically (wave hangs down from the section above);
+                        keep --from/--to meaning above/below, colours swap automatically.
    ========================================================================== */
 .divider-wave {
   --wave-from: var(--color-stucco);
@@ -389,6 +390,11 @@ button.chip {
 .divider-wave--to-light    { --wave-to: var(--color-stucco-light); }
 .divider-wave--to-dark     { --wave-to: var(--color-mesquite); }
 .divider-wave--to-adobe    { --wave-to: var(--color-rust); }
+
+.divider-wave--flip {
+  background-color: var(--wave-to);
+  color: var(--wave-from);
+}
 
 /* ==========================================================================
    Sticker badge
@@ -497,26 +503,26 @@ button.chip {
   background-color: var(--color-mesquite);
   -webkit-mask: var(--palm-frond) center / contain no-repeat;
   mask: var(--palm-frond) center / contain no-repeat;
-  opacity: 0.13;
-  filter: blur(5px);
-  transform-origin: 90% 10%;
+  opacity: 0.11;
+  transform-origin: 50% 50%;
 }
 
+/* Rotated ~180° so the frond hangs from the top-right corner */
 .page-hero::before {
-  top: -18%;
-  right: -10%;
-  width: min(70vw, 520px);
+  top: -22%;
+  right: -12%;
+  width: min(85vw, 560px);
   aspect-ratio: 1;
-  transform: rotate(-150deg);
+  transform: rotate(-172deg);
 }
 
 .page-hero::after {
-  top: -30%;
-  right: 12%;
-  width: min(45vw, 340px);
+  top: -38%;
+  right: 22%;
+  width: min(55vw, 380px);
   aspect-ratio: 1;
-  opacity: 0.09;
-  transform: rotate(-115deg) scaleX(-1);
+  opacity: 0.08;
+  transform: rotate(160deg) scaleX(-1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -530,13 +536,13 @@ button.chip {
 }
 
 @keyframes page-hero-sway-a {
-  from { transform: rotate(-153deg); }
-  to   { transform: rotate(-145deg); }
+  from { transform: rotate(-175deg); }
+  to   { transform: rotate(-167deg); }
 }
 
 @keyframes page-hero-sway-b {
-  from { transform: rotate(-112deg) scaleX(-1); }
-  to   { transform: rotate(-120deg) scaleX(-1); }
+  from { transform: rotate(163deg) scaleX(-1); }
+  to   { transform: rotate(155deg) scaleX(-1); }
 }
 
 .page-hero h1 {
@@ -817,7 +823,7 @@ details.accordion[open] > summary::after {
   transition: transform var(--dur-med) var(--ease-spring);
 }
 
-.nav-toggle[aria-expanded="true"] .nav-toggle__bar:first-of-type {
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-of-type(2) {
   transform: translateY(4.5px) rotate(45deg);
 }
 

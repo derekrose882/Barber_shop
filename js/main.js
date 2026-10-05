@@ -138,6 +138,7 @@ function initNav() {
 
 const seen = new WeakSet();
 let revealObserver;
+const revealTargets = new Map();
 let countObserver;
 
 function revealNow(el) {
@@ -159,7 +160,12 @@ function prepareReveal(el) {
     revealNow(el);
     return;
   }
-  revealObserver.observe(el);
+  // A fully clip-path'd element never reports as intersecting, so arch
+  // reveals are triggered by their parent instead.
+  const target = el.dataset.reveal === 'arch' && el.parentElement ? el.parentElement : el;
+  if (!revealTargets.has(target)) revealTargets.set(target, []);
+  revealTargets.get(target).push(el);
+  revealObserver.observe(target);
 }
 
 const numberFormats = new Map();
@@ -220,7 +226,8 @@ function initObservers() {
       (entries, obs) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          revealNow(entry.target);
+          (revealTargets.get(entry.target) || [entry.target]).forEach(revealNow);
+          revealTargets.delete(entry.target);
           obs.unobserve(entry.target);
         });
       },
@@ -314,6 +321,8 @@ function enhanceSticker(sticker) {
   textNode.append(textPath);
   svg.append(path, textNode);
 
+  // Screen readers get the words without the decorative separators
+  textEl.textContent = text.split('✦').map((t) => t.trim()).filter(Boolean).join(', ');
   textEl.classList.add('sr-only');
   sticker.prepend(svg);
   sticker.classList.add('is-enhanced');
