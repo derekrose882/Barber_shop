@@ -53,7 +53,8 @@ A modern, beautiful demo website showcasing what a premium barbershop website ca
 │       ├── home.css
 │       ├── services.css
 │       ├── barbers.css
-│       └── book.css
+│       ├── book.css
+│       └── 404.css
 ├── js/
 │   ├── data.js             # Shared content data
 │   ├── main.js             # Shared JavaScript

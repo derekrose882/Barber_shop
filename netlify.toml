@@ -1,7 +1,6 @@
+# Static site: no build step, publish the repo root
 [build]
-  base = "/"
-  command = "echo 'No build command needed'"
-  publish = "/"
+  publish = "."
 
 [[headers]]
   for = "/css/*"
