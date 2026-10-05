@@ -1,36 +1,23 @@
-/* 404 page - Mistral */
+/* 404 page - Mistral (Phase 2 polish: Claude Code) */
 
 .page-hero--404 {
-  min-height: 60vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  min-height: 70vh;
+  min-height: 70svh;
   text-align: center;
 }
 
+.page-hero--404 .container {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+}
+
 .page-hero--404 h1 {
-  font-family: var(--font-display);
-  font-size: var(--text-3xl);
-  color: var(--color-adobe);
-  margin-bottom: var(--space-4);
+  max-width: 14ch;
 }
 
 .page-hero--404 .page-hero__lead {
-  font-size: var(--text-lg);
-  color: var(--color-mesquite-soft);
-  margin-bottom: var(--space-6);
-}
-
-.page-hero--404 .btn {
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .page-hero--404 {
-    min-height: 50vh;
-  }
-
-  .page-hero--404 h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-  }
+  margin-top: 0;
 }
