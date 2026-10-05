@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Services & prices | Palm &amp; Blade Barbershop, El Cajon</title>
-  <meta name="description" content="Cuts, fades, beard sculpting, hot towel shaves, and combos at Palm &amp; Blade in El Cajon. See the full menu and prices.">
+  <title>Services & prices | Palm & Blade Barbershop, El Cajon</title>
+  <meta name="description" content="See our full menu of cuts, beard grooming, and combo services with transparent pricing. Every service includes a hot towel and zero rush.">
   <meta name="theme-color" content="#F3E6D8">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <!-- fonts (Section 4.3) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
@@ -40,11 +39,65 @@
       </nav>
     </div>
   </header>
-
   <main id="main">
-    <!-- PAGE-SPECIFIC content -->
-  </main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Services & prices</h1>
+        <p class="page-hero__lead">Every service comes with a hot towel, a cold drink, and zero rush.</p>
+      </div>
+    </section>
 
+    <section class="services-nav section section--stucco-light">
+      <div class="container">
+        <nav class="services-nav__list" aria-label="Service categories" data-services-nav>
+          <a class="chip services-nav__link" href="#cuts" data-category="cuts">Cuts</a>
+          <a class="chip services-nav__link" href="#beard" data-category="beard">Beard & shave</a>
+          <a class="chip services-nav__link" href="#combos" data-category="combos">Combos</a>
+          <a class="chip services-nav__link" href="#addons" data-category="addons">Add-ons</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="services-menu section">
+      <div class="container">
+        <div class="services-menu__categories" data-services-menu></div>
+      </div>
+    </section>
+
+    <section class="what-to-expect section section--stucco-light">
+      <div class="container">
+        <h2>What to expect</h2>
+        <ol class="what-to-expect__steps">
+          <li class="what-to-expect__step">
+            <span class="what-to-expect__number">1</span>
+            <span>Book online or walk in</span>
+          </li>
+          <li class="what-to-expect__step">
+            <span class="what-to-expect__number">2</span>
+            <span>Grab a cold water and relax</span>
+          </li>
+          <li class="what-to-expect__step">
+            <span class="what-to-expect__number">3</span>
+            <span>Leave looking sharp</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="services-faq section">
+      <div class="container">
+        <h2>Frequently asked</h2>
+        <div class="services-faq__list" data-services-faq></div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h2>Your chair's waiting.</h2>
+        <a class="btn btn--light btn--lg" href="book.html">Book a chair</a>
+      </div>
+    </section>
+  </main>
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
@@ -72,7 +125,6 @@
     </div>
     <p class="site-footer__demo container">Palm &amp; Blade is a fictional shop. Demo site designed and built by Next Door Web Development.</p>
   </footer>
-
   <script type="module" src="js/main.js"></script>
   <script type="module" src="js/pages/services.js"></script>
 </body>

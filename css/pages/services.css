@@ -1,0 +1,215 @@
+/* Services page - Mistral */
+
+.services-nav {
+  position: relative;
+}
+
+.services-nav__list {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-1) 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.services-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.services-nav__link {
+  flex-shrink: 0;
+  color: var(--color-mesquite);
+  background-color: var(--color-stucco);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.services-nav__link:hover,
+.services-nav__link:focus {
+  background-color: var(--color-adobe);
+  color: var(--color-stucco-light);
+}
+
+.services-menu__categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.services-menu__category {
+  scroll-margin-top: calc(var(--header-h) + var(--space-4));
+}
+
+.services-menu__category h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-adobe);
+  margin-bottom: var(--space-4);
+}
+
+.services-menu__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.services-menu__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.services-menu__item:hover,
+.services-menu__item:focus-within {
+  background-color: var(--color-stucco);
+}
+
+.services-menu__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.services-menu__name {
+  font-weight: 600;
+  color: var(--color-mesquite);
+  flex: 1;
+  min-width: 0;
+}
+
+.services-menu__leader {
+  flex: 1;
+  min-width: 0;
+  height: 1px;
+  background: radial-gradient(var(--color-mesquite-soft) 0%, var(--color-mesquite-soft) 50%, transparent 50%) repeat-x;
+  background-size: 4px 1px;
+  align-self: center;
+}
+
+.services-menu__item:hover .services-menu__leader,
+.services-menu__item:focus-within .services-menu__leader {
+  background: radial-gradient(var(--color-adobe) 0%, var(--color-adobe) 50%, transparent 50%) repeat-x;
+  background-size: 4px 1px;
+}
+
+.services-menu__price {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-adobe);
+  white-space: nowrap;
+}
+
+.services-menu__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-mesquite-soft);
+}
+
+.services-menu__duration {
+  font-size: var(--text-sm);
+}
+
+.services-menu__book {
+  color: var(--color-rust);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: auto;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.services-menu__book:hover,
+.services-menu__book:focus {
+  color: var(--color-adobe);
+}
+
+.services-menu__description {
+  font-size: var(--text-sm);
+  color: var(--color-mesquite-soft);
+  max-width: var(--measure);
+}
+
+.what-to-expect {
+  text-align: center;
+}
+
+.what-to-expect h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-adobe);
+  margin-bottom: var(--space-6);
+}
+
+.what-to-expect__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.what-to-expect__step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.what-to-expect__number {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-rust);
+  line-height: 1;
+}
+
+.services-faq {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-faq h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-adobe);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.services-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.services-faq__item {
+  background-color: var(--color-stucco-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .services-nav__list {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (min-width: 768px) {
+  .services-nav__list {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .what-to-expect__steps {
+    gap: var(--space-6);
+  }
+
+  .what-to-expect__number {
+    font-size: var(--text-3xl);
+  }
+}

@@ -1,0 +1,36 @@
+/* 404 page - Mistral */
+
+.page-hero--404 {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-hero--404 h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--color-adobe);
+  margin-bottom: var(--space-4);
+}
+
+.page-hero--404 .page-hero__lead {
+  font-size: var(--text-lg);
+  color: var(--color-mesquite-soft);
+  margin-bottom: var(--space-6);
+}
+
+.page-hero--404 .btn {
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .page-hero--404 {
+    min-height: 50vh;
+  }
+
+  .page-hero--404 h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+}
