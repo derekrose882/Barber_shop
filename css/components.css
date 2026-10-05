@@ -1093,6 +1093,11 @@ details.accordion[open] > summary::after {
   font-weight: 600;
 }
 
+/* Full contrast on the highlight, even when today is a closed day */
+.hours-list__item.is-today .hours-list__time {
+  opacity: 1;
+}
+
 .hours-list__badge {
   margin-left: var(--space-2);
   font-size: var(--text-sm);
